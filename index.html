@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <base target="_top">
+    <style>
+        #app {
+            margin: 55px auto;
+            width: 350px;
+        }
+
+        
+        input {
+            width: 100%;
+        }
+        
+        .form-group {
+            margin: 9px 0px 9px 0px;
+        }
+    </style> 
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- форма -->
+        <form id="form">
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" name="name" placeholder="Имя" />
+            </div>
+            <div class="form-group">
+                <label for="number">Номер телефона</label>
+                <input type="text" name="number" placeholder="+79600035317" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Загрузить данные" />
+            </div>
+
+        </form>
+        <div id="output"></div>
+    </div>
+    
+    <script>
+        //Обработка события onsubmit
+        let frm = document.getElementById('form');
+        let otp = document.getElementById('output');
+
+        if (frm.addEventListener)
+            frm.addEventListener('submit', submit, false);
+
+
+        //функция кнопки submit
+        function submit(event) {
+            event.preventDefault();
+            frm.style.display = 'none';
+            //меняем надпись
+            otp.innerHTML = 'Идет загрузка...';
+            //вызываем сервер для обработки данных формы. Функция на стороне сервера uploadFiles(form)
+            google.script.run.withSuccessHandler(onSuccess).withFailureHandler(onFailure).uploadFiles(this);
+        }
+
+        //функция по завершению работы с сервером
+        function onSuccess(status) {
+            frm.style.display = 'block'; //прячем форму
+            frm.reset();
+            otp.innerHTML = status; //показываем, что ответил сервер
+        }
+
+        function onFailure(e) {
+            frm.style.display = 'block'; //прячем форму
+            otp.innerHTML = JSON.stringify(e);
+        }
+    </script>
+</body>
+
+</html>
