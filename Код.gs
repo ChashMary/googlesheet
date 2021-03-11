@@ -2,9 +2,6 @@
 let FOLDER_ID = '1j8ShvDv_7HjGoaARQJ7reQKcv_DuZs6A';
 let SHEET_ID = '1QjIVd1ivqv61Agnx3M5AaE67ciupddm-h1BiWEAZBVM';
 
-//вместо инициализации
-function onInstall() { }
-
 //сервеер
 function doGet(e) {
   //возвращает страницу
