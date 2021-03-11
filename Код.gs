@@ -34,7 +34,7 @@ function uploadFiles(form) {
           file.setDescription('Uploaded by ' + form['name'] + ' ' + form['number']);
           res.push(file.getUrl());
         } else {
-          // поле file оказалось пустым
+          // поле оказалось пустым
           res.push('Пусто');
         }
       }
