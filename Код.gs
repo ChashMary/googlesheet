@@ -32,10 +32,6 @@ function uploadFiles(form) {
           //создаем  на Диске
           let file = folder.createFile(blob);
           file.setDescription('Uploaded by ' + form['name'] + ' ' + form['number']);
-          res.push(file.getUrl());
-        } else {
-          // поле оказалось пустым
-          res.push('Пусто');
         }
       }
     }
