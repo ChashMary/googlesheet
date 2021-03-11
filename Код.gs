@@ -23,11 +23,6 @@ function uploadFiles(form) {
     //сортировка полей по имени
     let form_keys = Object.keys(form).sort();
 
-    /*
-    или задайте свою сортировку
-    let form_keys = ['file1', 'file2'];
-    */
-
     for (let i = 0; i < form_keys.length; i++) {
       let key = form_keys[i];
       if (form[key] && form[key].getBlob) {
