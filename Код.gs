@@ -27,9 +27,9 @@ function uploadFiles(form) {
       let key = form_keys[i];
       if (form[key] && form[key].getBlob) {
         if (form[key].length && form[key].contents) {
-          //берем контент 
+          //берем данные 
           let blob = form[key];
-          //создаем  на Диске
+          //создаем  
           let file = folder.createFile(blob);
           file.setDescription('Uploaded by ' + form['name'] + ' ' + form['number']);
         }
