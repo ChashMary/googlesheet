@@ -39,7 +39,7 @@ function uploadFiles(form) {
         }
       }
     }
-    //делаем запись в Таблице в первом найденном листе (Необходимо переписать для большей логики)
+    //делаем запись в Таблице в первом найденном листе 
     SpreadsheetApp.openById(SHEET_ID).getSheets()[0].appendRow([new Date(), form['name'], form['number']].concat(res));
     //ответ сервера
     
