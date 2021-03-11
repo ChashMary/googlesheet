@@ -14,7 +14,7 @@ function doGet(e) {
 //обработчик вызова сервера
 function uploadFiles(form) {
 
-  //все в try, иначе придется обрабатывать исключения на клиенте
+  //используем try для выявления ошибок
   try {
     //берем нашу папку
     let folder = DriveApp.getFolderById(FOLDER_ID);
